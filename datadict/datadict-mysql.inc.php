@@ -181,4 +181,17 @@ class ADODB2_mysql extends ADODB_DataDict {
 
 		return $sql;
 	}
+	
+	function GetCommentSQL($table, $col=false)
+	{
+		$schema = $this->connection->qstr($this->connection->database);
+		$table = $this->connection->qstr($table);
+		if(!$col){
+			$col = $this->connection->qstr($col);
+			return "SELECT COLUMN_COMMENT FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA=$schema AND TABLE_NAME=$table AND COLUMN_NAME=$col";
+		}else{
+			return "SELECT TABLE_COMMENT FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=$schema AND TABLE_NAME=$table";
+		}
+	}
+
 }
