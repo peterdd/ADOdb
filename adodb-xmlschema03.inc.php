@@ -2105,6 +2105,10 @@ class adoSchema {
 							$extra .= ' size="' . $details->max_length . '"';
 						}
 
+						if( isset($details->comment) && $details->comment !='') {
+							$content[] = '<descr>'.htmlentities($details->comment).'</descr>';
+						}
+
 						if( isset($details->primary_key) && $details->primary_key ) {
 							$content[] = '<KEY/>';
 						} elseif( isset($details->not_null) && $details->not_null ) {
