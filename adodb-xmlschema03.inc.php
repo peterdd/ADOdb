@@ -1401,7 +1401,7 @@ class adoSchema {
 	function __construct( $db ) {
 		$this->db = $db;
 		$this->debug = $this->db->debug;
-		$this->dict = NewDataDictionary( $this->db );
+		$this->dict = newDataDictionary( $this->db );
 		$this->sqlArray = array();
 		$this->schemaVersion = XMLS_SCHEMA_VERSION;
 		$this->executeInline( XMLS_EXECUTE_INLINE );
@@ -2092,7 +2092,7 @@ class adoSchema {
 					. '">' . "\n";
 
 				// grab details from database
-				$rs = $this->db->execute( 'SELECT * FROM ' . $table . ' WHERE -1' );
+				$rs = $this->db->execute('SELECT * FROM ' . $table . ' WHERE 0=1');
 				$fields = $this->db->metaColumns( $table );
 				$indexes = $this->db->metaIndexes( $table );
 
