@@ -2172,7 +2172,7 @@ class adoSchema
 						}
 
 						if (isset($details->comment) && $details->comment !='') {
-							$content[] = '<descr>'.htmlentities($details->comment).'</descr>';
+							$content[] = '<descr>' . htmlentities($details->comment) . '</descr>';
 						}
 
 						if (isset($details->primary_key) && $details->primary_key) {
